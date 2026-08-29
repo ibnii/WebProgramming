@@ -185,9 +185,14 @@ form p {
 form button[type="submit"] {
   background-color: #1d5b8a;
   color: #fff;
-  border: none;
+  border: 2px solid transparent;
   padding: 0.6rem 1.5rem;
   cursor: pointer;
   font-size: 1rem;
   border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+form button[type="submit"]:hover{
+  background-color: #2486d1;
 }
