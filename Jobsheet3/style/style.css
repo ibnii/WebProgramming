@@ -37,7 +37,7 @@ header nav ul {
   margin-right: 1rem;
   gap: 1.25rem;
   list-style: none;
-  flex-wrap: wrap;
+
 }
 
 header nav a {
@@ -48,9 +48,9 @@ header nav a {
 
 /* CSS GRID */
 main {
+  width: 90%;
   max-width: 1000px;
   margin: 2rem auto;
-  /* padding: 0 1.5rem; */
 }
 
 section {
@@ -72,7 +72,7 @@ main section:nth-of-type(2) {
 }
 main section:nth-of-type(2) .listbuku {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
   gap: 1.5rem;
 }
 
@@ -196,4 +196,63 @@ form button[type="submit"] {
 
 form button[type="submit"]:hover{
   background-color: #2486d1;
+}
+
+.nav-toggle{
+  display: none;
+}
+
+.nav-toggle-label{
+  display: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.table-responsive{
+  overflow-x: auto;
+}
+
+@media (max-width: 768px){
+  header{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  header nav ul{
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+  }
+}
+
+@media (max-width: 480px){
+  header{
+    flex-direction: row;
+  }
+  .nav-toggle-label{
+    display: block;
+  }
+
+  header h1{
+    margin-left: 0.7rem;
+  }
+
+  header nav{
+    display: none;
+    width: 100%;
+  }
+
+  .nav-toggle:checked ~ nav{
+    display: block;
+  }
+
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-left: 1rem;
+  }
 }
