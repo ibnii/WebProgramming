@@ -202,8 +202,17 @@ form button[type="submit"]:hover{
   display: none;
 }
 
-.nav-toggle-label{
+/* .nav-toggle-label{
   display: none;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+} */
+
+#nav-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
   color: white;
   cursor: pointer;
   font-size: 1.6rem;
@@ -211,6 +220,21 @@ form button[type="submit"]:hover{
 
 .table-responsive{
   overflow-x: auto;
+}
+
+/* Search Box */
+.search-box{
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.search-box input{
+  max-width: 320px;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin-left: 1rem;
+  border: 1px solid #cdd4da;
 }
 
 @media (max-width: 768px){
@@ -232,7 +256,11 @@ form button[type="submit"]:hover{
   header{
     flex-direction: row;
   }
-  .nav-toggle-label{
+  /* .nav-toggle-label{
+    display: block;
+  } */
+
+  #nav-toggle-btn{
     display: block;
   }
 
@@ -245,7 +273,7 @@ form button[type="submit"]:hover{
     width: 100%;
   }
 
-  .nav-toggle:checked ~ nav{
+  header nav.nav-open{
     display: block;
   }
 
