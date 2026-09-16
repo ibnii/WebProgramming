@@ -9,16 +9,17 @@ function initNavToggle() {
 }
 
 function initHapusConfirm() {
-  document.querySelectorAll(".btn-hapus").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const row = btn.closest("tr");
-      const nama = row ? row.querySelector("td").textContent : "Nama";
-      const yakin = confirm('Yakin ingin menghapus "' + nama + '" ');
-      if (row && yakin) {
-        row.remove();
-      }
+    document.addEventListener("click", function (e) {
+        const btn = e.target.closest(".btn-hapus");
+        if (!btn) return;
+
+        const row = btn.closest("tr");
+        const nama = row ? row.querySelector("td")?.textContent : "data ini";
+        const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
+        if (yakin && row) {
+            row.remove();
+        }
     });
-  });
 }
 
 function initTableFilter() {
