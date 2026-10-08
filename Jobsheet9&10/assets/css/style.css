@@ -1,153 +1,250 @@
-/* ===== Reset & Base ===== */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    color: #2b2b2b;
-    background-color: #f5f6f8;
-    line-height: 1.5;
-}
-
-a {
-    color: #1d5b8a;
-    text-decoration: none;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #2b2b2b;
+  background-color: #f5f6f8;
+  line-height: 1.5;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* ===== Header & Navbar (Flexbox) ===== */
 header {
-    background-color: #1d5b8a;
-    color: #fff;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  background-color: #1d5b8a;
+  color: #fff;
+  display: flex;
+  /* grid-template-columns: 1fr auto 1fr; */
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0.3rem 0;
 }
 
 header h1 {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
+  margin-left: 1.5rem;
 }
 
 header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.25rem;
+  display: flex;
+  margin-right: 1rem;
+  gap: 1.25rem;
+  list-style: none;
+
 }
 
 header nav a {
-    color: #fff;
-    font-weight: 500;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
 }
 
-/* ===== Main Layout ===== */
+/* CSS GRID */
 main {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
 }
 
 section {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 5px 2px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  background-color: #fff;
+  margin-bottom: 1.5rem;
 }
 
 section h2 {
-    margin-bottom: 1rem;
-    color: #1d5b8a;
+  color: #1d5b8a;
+  margin-bottom: 1rem;
 }
 
-/* ===== Kartu Statistik (CSS Grid) ===== */
 main section:nth-of-type(2) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+main section:nth-of-type(2) .listbuku {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  gap: 1.5rem;
 }
 
-main section:nth-of-type(2) article {
-    background-color: #eef4fa;
-    border-radius: 8px;
-    padding: 1.25rem;
-    text-align: center;
+main section:nth-of-type(2) .listbuku article {
+  background-color: #eef4fa;
+  padding: 1.2rem;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-main section:nth-of-type(2) article h3 {
-    font-size: 0.95rem;
-    color: #55677a;
-    margin-bottom: 0.5rem;
+main section:nth-of-type(2) .listbuku article h3 {
+  font-size: 0.95rem;
+  color: #55677a;
+  margin-bottom: 0.5rem;
 }
 
-main section:nth-of-type(2) article p {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #1d5b8a;
+main section:nth-of-type(2) .listbuku article p {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1d5b8a;
 }
 
-/* ===== Tabel ===== */
+/* Footer */
+footer {
+  text-align: center;
+  color: #7a8794;
+  font-size: 0.9rem;
+  padding: 1.25rem;
+}
+
+/* Table */
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-th, td {
-    text-align: left;
-    padding: 0.65rem 0.75rem;
-    border-bottom: 1px solid #e2e6ea;
+table thead {
+  background-color: #1d5b8a;
+  color: #fff;
 }
 
-thead {
-    background-color: #1d5b8a;
-    color: #fff;
+table th,
+table td {
+  text-align: left;
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid #e2e6ea;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f7f9fb;
+  background-color: #f7f9fb;
 }
 
 tbody tr:hover {
-    background-color: #eef4fa;
+  background-color: #eef4fa;
 }
 
-td button {
-    padding: 0.35rem 0.7rem;
-    margin-right: 0.35rem;
+/* ===== Tombol Aksi Tabel (Edit & Hapus) ===== */
+/*
+ * PENTING: `td button:first-child/:last-child` TIDAK dipakai di sini.
+ * Markup <td> berisi teks + <a> + <form>, sehingga <button> Hapus bukan
+ * :first-child maupun :last-child dari <td> (form pembungkusnya yang terakhir).
+ * Akibatnya rule lama gagal menempel dan tombol tampil "polos".
+ * Solusinya: targetkan langsung lewat kelas .btn-edit / .btn-hapus.
+ */
+/* <td> kolom Aksi jadi baris flex agar Edit & Hapus sejajar rapi */
+table td:last-child:not([colspan]) {
+  white-space: nowrap;
+}
+
+table td:last-child:not([colspan]) a.btn-edit,
+table td:last-child:not([colspan]) form.form-hapus {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+table td:last-child:not([colspan]) form.form-hapus {
+  margin: 0;
+}
+
+.btn-edit,
+.btn-hapus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.25rem;
+  padding: 0.38rem 0.85rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1.2;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-edit {
+  background-color: #f0ad4e;
+  color: #fff;
+  margin-right: 0.4rem;
+}
+
+.btn-edit:hover {
+  background-color: #d9963c;
+  text-decoration: none;
+}
+
+.btn-hapus {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.btn-hapus:hover {
+  background-color: #c14541;
+}
+
+.btn-edit:active,
+.btn-hapus:active {
+  transform: translateY(1px);
+}
+
+.btn-edit:focus-visible,
+.btn-hapus:focus-visible {
+  outline: 2px solid #1d5b8a;
+  outline-offset: 2px;
+}
+
+/* ===== Form ===== */
+form p {
+    margin-bottom: 1rem;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    color: #444;
+}
+
+form input,
+form select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid #cdd4da;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/*
+ * Submit generik HANYA untuk form biasa (tambah/edit). Form hapus di dalam
+ * tabel dikecualikan, kalau tidak style ini menang spesifisitasnya atas
+ * .btn-hapus dan tombol Hapus berubah jadi biru + padding besar.
+ */
+form:not(.form-hapus) button[type="submit"] {
+    background-color: #1d5b8a;
+    color: #fff;
     border: none;
+    padding: 0.6rem 1.5rem;
     border-radius: 4px;
+    font-size: 1rem;
     cursor: pointer;
-    font-size: 0.85rem;
 }
 
-td button:first-of-type,
-td a.btn-edit {
-    background-color: #f0ad4e;
-    color: #fff;
-}
-
-td button:last-of-type {
-    background-color: #d9534f;
-    color: #fff;
-}
-
-td a.btn-edit {
-    display: inline-block;
-    padding: 0.35rem 0.7rem;
-    margin-right: 0.35rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-}
-
-td form.form-hapus {
-    display: inline;
+form:not(.form-hapus) button[type="submit"]:hover {
+    background-color: #164869;
 }
 
 /* ===== Pagination ===== */
@@ -185,54 +282,27 @@ td form.form-hapus {
     cursor: pointer;
 }
 
-/* ===== Form ===== */
-form p {
-    margin-bottom: 1rem;
-}
-
-form label {
-    display: block;
-    margin-bottom: 0.35rem;
-    font-weight: 600;
-    color: #444;
-}
-
-form input,
-form select {
-    width: 100%;
-    max-width: 400px;
-    padding: 0.55rem 0.7rem;
-    border: 1px solid #cdd4da;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-form button[type="submit"] {
-    background-color: #1d5b8a;
-    color: #fff;
-    border: none;
-    padding: 0.6rem 1.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-form button[type="submit"]:hover {
-    background-color: #164869;
-}
-
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    padding: 1.25rem;
-    color: #7a8794;
-    font-size: 0.9rem;
-}
-
 /* ===== Tabel Responsif ===== */
-.table-responsive {
-    overflow-x: auto;
+.table-responsive{
+  overflow-x: auto;
 }
+
+@media (max-width: 768px){
+  header{
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  header nav ul{
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+  }
+}
+
+/* Login Page */
 
 /* ===== Hamburger Menu (JS-driven) ===== */
 .nav-toggle-label {
@@ -272,58 +342,44 @@ footer {
 
 /* ===== Kolom Pencarian ===== */
 .search-box {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .search-box input {
+  width: 100%;
+  max-width: 320px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cdd4da;
+  border-radius: 4px;
+}
+
+@media (max-width: 480px){
+  header{
+    flex-direction: row;
+  }
+
+  .nav-toggle-label{
+    display: block;
+  }
+
+  header h1{
+    margin-left: 0.7rem;
+  }
+
+  header nav{
+    display: none;
     width: 100%;
-    max-width: 320px;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #cdd4da;
-    border-radius: 4px;
-}
+  }
 
-/* ===== Responsive Breakpoints ===== */
+  header nav.nav-open{
+    display: block;
+  }
 
-/* Tablet ke bawah */
-@media (max-width: 768px) {
-    main section:nth-of-type(2) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-    header {
-        position: relative;
-    }
-
-    .nav-toggle-label {
-        display: block;
-    }
-
-    header nav {
-        display: none;
-        width: 100%;
-        order: 3;
-        margin-top: 1rem;
-    }
-
-    header nav.nav-open {
-        display: block;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    main section:nth-of-type(2) {
-        grid-template-columns: 1fr;
-    }
-
-    form input,
-    form select {
-        max-width: 100%;
-    }
+  nav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-left: 1rem;
+  }
 }

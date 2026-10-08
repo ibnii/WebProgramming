@@ -28,7 +28,7 @@ $base = $__rel === '' ? '' : str_repeat('../', substr_count($__rel, '/') + 1);
         </button>
         <nav>
             <ul>
-                <li><a href="<?php echo $base; ?>login.php">Login</a></li>
+                <li><a href="<?php echo $base; ?>login.html">Login</a></li>
                 <li><a href="<?php echo $base; ?>index.php">Beranda</a></li>
                 <li><a href="<?php echo $base; ?>buku/list.php">Daftar Buku</a></li>
                 <li><a href="<?php echo $base; ?>buku/tambah.php">Tambah Buku</a></li>
