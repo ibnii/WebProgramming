@@ -45,6 +45,20 @@ header nav a {
   text-decoration: none;
 }
 
+/* ===== Auth Status (Login/Logout navbar) ===== */
+.auth-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-right: 1.5rem;
+  color: #fff;
+}
+
+.auth-status a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 /* CSS GRID */
 main {
   width: 90%;

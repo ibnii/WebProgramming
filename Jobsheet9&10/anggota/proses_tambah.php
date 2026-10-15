@@ -1,5 +1,5 @@
 <?php
-session_start();
+require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
 
 $nama = trim($_POST['nama'] ?? '');
